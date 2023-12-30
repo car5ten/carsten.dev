@@ -1,0 +1,236 @@
+/**
+ *  Publish Foundation theme
+ *  Copyright (c) John Sundell 2019
+ *  MIT license, see LICENSE file for details
+ */
+
+:root {
+	--body-background: #F5F5F5;
+	--container-background: #f5f5f5;
+	--acent: #45A2FF;
+	--text: #242f4a;
+	--drop-shadow: 0 4px 8px 0 rgba(0.86,0.87,0.88, 0.035), 0 2px 20px 0 rgba(0.86,0.87,0.88, 0.035);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ Fonts
+ */
+
+@font-face {
+    font-family: "TimeBurner";
+    src: url(/fonts/timeburner/timeburnernormal.ttf);
+}
+
+@font-face {
+    font-family: "TimeBurner";
+    src: url(/fonts/timeburner/timeburnerbold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url(/fonts/geist/Geist-Regular.otf);
+    font-weigt: regular;
+}
+
+/**
+ Main
+ */
+
+body {
+	background-color: var(--body-background);
+    font-family: Geist;
+    text-align: center;
+}
+
+.main-container {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 40px;
+	background-color: var(--container-background);
+	var(--drop-shadow);
+	box-shadow: var(--drop-shadow);
+/*	box-shadow: 0 4px 8px 0 #DDDFE1, 0 6px 20px 0 #DDDFE1;*/
+}
+
+.wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    text-align: left;
+}
+
+header {
+    background-color: var(--container-background);
+    font-family: TimeBurner;
+}
+
+header .wrapper {
+    padding: 0px;
+	text-align: center;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header .header-grid {
+    display: inline-grid;
+    align-items: baseline;
+    justify-content: start;
+}
+
+header .site-name {
+	color: var(--acent);
+    grid-row-start: 1;
+    padding-left: 64px;
+}
+
+header .site-name .left {
+    font-size: 3.75em;
+    font-weight: bold;
+}
+
+header .site-name .right {
+    font-size: 2.75em;
+    font-weight: normal;
+}
+
+header .wrapper nav {
+    grid-row-start: 1;
+}
+
+body, nav, header {
+	color: var(--text);
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin: 0 7px;
+    line-height: 1.5em;
+}
+
+nav li a.selected {
+    text-decoration: underline;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+.description {
+    margin-bottom: 40px;
+}
+
+.item-list > li {
+    display: block;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #eee;
+    margin-bottom: 20px;
+}
+
+.item-list > li:last-child {
+    margin-bottom: 0;
+}
+
+.item-list h1 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.item-list p {
+    margin-bottom: 0;
+}
+
+.tag-list {
+    margin-bottom: 15px;
+}
+
+.tag-list li,
+.tag {
+    display: inline-block;
+    background-color: #000;
+    color: #ddd;
+    padding: 4px 6px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.tag-list a,
+.tag a {
+    text-decoration: none;
+}
+
+.item-page .tag-list {
+    display: inline-block;
+}
+
+.content {
+    margin-bottom: 40px;
+}
+
+.browse-all {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.all-tags li {
+    font-size: 1.4em;
+    margin-right: 10px;
+    padding: 6px 10px;
+}
+
+footer {
+    color: #8a8a8a;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--body-background: #1B2017;
+		--container-background: #12170e;
+		--acent: #2693FF;
+		--text: #eef0dc;
+		--drop-shadow: 0 4px 8px 0 rgba(0.1,0.12,0.09, 0.035), 0 6px 20px 0 rgba(0.1,0.12,0.09, 0.035);
+	}
+
+    .item-list > li {
+        background-color: #333;
+    }
+}
+
+@media(max-width: 600px) {
+    .wrapper {
+        padding: 40px 20px;
+    }
+}
