@@ -82,15 +82,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
 
     func makePageHTML(for page: Page,
                       context: PublishingContext<Site>) throws -> HTML {
-        HTML(
-            .lang(context.site.language),
-            .head(for: page, on: context.site),
-            .body {
-                SiteHeader(context: context, selectedSelectionID: nil)
-                Wrapper(page.body)
-                SiteFooter()
-            }
-        )
+        HTML()
     }
 
     func makeTagListHTML(for page: TagListPage,
