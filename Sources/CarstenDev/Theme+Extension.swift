@@ -67,9 +67,11 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                 .class("item-page"),
                 .components {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
-                    Wrapper {
-                        Article {
-                            Div(item.content.body).class("content")
+                    MainContainer {
+                        Wrapper {
+                            Article {
+                                Div(item.content.body).class("content")
+                            }
                         }
                     }
                     SiteFooter()
