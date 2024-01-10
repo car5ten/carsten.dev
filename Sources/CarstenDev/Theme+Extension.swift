@@ -18,8 +18,11 @@ extension Theme {
     }
 }
 
-
 private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
+
+    enum ThemeError: Error {
+        case unknownWebsiteSectionID
+    }
 
     func makeIndexHTML(for index: Index,
                        context: PublishingContext<Site>) throws -> HTML {
@@ -44,9 +47,11 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             .head(for: section, on: context.site),
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
-                Wrapper {
-                    H1(section.title)
-                    ItemList(items: section.items, site: context.site)
+                MainContainer {
+                    section.body
+                    Wrapper {
+                        ItemList(items: section.items, site: context.site)
+                    }
                 }
                 SiteFooter()
             }
@@ -55,7 +60,22 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
 
     func makeItemHTML(for item: Item<Site>,
                       context: PublishingContext<Site>) throws -> HTML {
-        HTML()
+        HTML(
+            .lang(context.site.language),
+            .head(for: item, on: context.site),
+            .body(
+                .class("item-page"),
+                .components {
+                    SiteHeader(context: context, selectedSelectionID: item.sectionID)
+                    Wrapper {
+                        Article {
+                            Div(item.content.body).class("content")
+                        }
+                    }
+                    SiteFooter()
+                }
+            )
+        )
     }
 
     func makePageHTML(for page: Page,
@@ -73,12 +93,12 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
 
     func makeTagListHTML(for page: TagListPage,
                          context: PublishingContext<Site>) throws -> HTML? {
-        HTML()
+        nil
     }
 
     func makeTagDetailsHTML(for page: TagDetailsPage,
                             context: PublishingContext<Site>) throws -> HTML? {
-        HTML()
+        nil
     }
 }
 
@@ -104,24 +124,18 @@ private struct SiteHeader<Site: Website>: Component {
 
     var body: Component {
         Header {
-            Wrapper {
-                Div {
-                    Div {
-                        let left = context.site.name.split(separator: ".").first!
-                        let leftEndIndex = context.site.name.range(of: left)!.upperBound
-                        let right = context.site.name[leftEndIndex ..< context.site.name.endIndex]
-                        Link(String(left), url: "/")
-                            .class("left")
-                        Link(String(right), url: "/")
-                            .class("right")
-                    }
-                    .class("site-name")
+            Div {
+                let left = context.site.name.split(separator: ".").first!
+                let leftEndIndex = context.site.name.range(of: left)!.upperBound
+                let right = context.site.name[leftEndIndex ..< context.site.name.endIndex]
+                Link(String(left), url: "/")
+                    .class("left")
+                Link(String(right), url: "/")
+                    .class("right")
+            }
 
-                    if Site.SectionID.allCases.count > 0 {
-                        navigation
-                    }
-                }
-                .class("header-grid")
+            if Site.SectionID.allCases.count > 0 {
+                navigation
             }
         }
     }
@@ -147,24 +161,10 @@ private struct ItemList<Site: Website>: Component {
     var body: Component {
         List(items) { item in
             Article {
-                H1(Link(item.title, url: item.path.absoluteString))
-                ItemTagList(item: item, site: site)
-                Paragraph(item.description)
+                item.body
             }
         }
         .class("item-list")
-    }
-}
-
-private struct ItemTagList<Site: Website>: Component {
-    var item: Item<Site>
-    var site: Site
-
-    var body: Component {
-        List(item.tags) { tag in
-            Link(tag.string, url: site.path(for: tag).absoluteString)
-        }
-        .class("tag-list")
     }
 }
 
@@ -178,4 +178,3 @@ private struct SiteFooter: Component {
         }
     }
 }
-
