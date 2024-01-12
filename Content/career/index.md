@@ -2,8 +2,6 @@
 title: Career
 ---
 
-# Welcome
+# Me as iOS Developer
 
-### Below you can find a list of companies I am/was working as iOS Developer.</br></br>
-
-
+### Below you will find my career and the projects that reflect my work.
