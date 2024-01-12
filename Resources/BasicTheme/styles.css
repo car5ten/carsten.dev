@@ -5,11 +5,11 @@
  */
 
 :root {
-	--body-background: #F5F5F5;
-	--container-background: #FFFFFF;
-	--acent: #3498DB;
-	--text: #333333;
-	--drop-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    --body-background: #F5F5F5;
+    --container-background: #FFFFFF;
+    --accent: #45A2FF;
+    --text: #333333;
+    --drop-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
 
 * {
@@ -62,7 +62,7 @@
 }
 
 header div {
-    color: var(--acent);
+    color: var(--accent);
     grid-column: 2;
 }
 
@@ -75,58 +75,58 @@ header {
     align-items: baseline;
     justify-items: start;
     gap: 1em;
-	box-shadow: var(--drop-shadow);
+    box-shadow: var(--drop-shadow);
 }
 
 header .left {
-	font-size: 3.75em;
-	font-weight: bold;
-	color: var(--acent);
+    font-size: 3.75em;
+    font-weight: bold;
+    color: var(--accent);
 }
 
 header .right {
-	font-size: 2.75em;
-	font-weight: normal;
-	color: var(--acent);
+    font-size: 2.75em;
+    font-weight: normal;
+    color: var(--accent);
 }
 
 nav ul {
-	list-style: none;
+    list-style: none;
     display: flex;
     gap: 1em;
 }
 
 nav li a.selected {
-	color: #FC9E4F;
+    color: #FC9E4F;
 }
 
 header a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 nav li a {
-	color: var(--text);
-	position: relative;
+    color: var(--text);
+    position: relative;
 }
 
 nav li a::before {
-	content: '';
-	position: absolute;
-	border-radius: 2px;
-	bottom: 0;
-	right: 0;
-	width: 0;
-	height: 2px;
-	background-color: #FC9E4F;
-	transition: width 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    content: '';
+    position: absolute;
+    border-radius: 2px;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FC9E4F;
+    transition: width 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-	nav li a:not(selected):hover::before{
-		left: 0;
-		right: auto;
-		width: 100%;
-	}
+    nav li a:not(selected):hover::before{
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
 }
 
 /**
@@ -134,25 +134,25 @@ nav li a::before {
  */
 
 strong {
-    color: var(--acent);
+    color: var(--accent);
 }
 
 body {
-	background-color: var(--body-background);
-	font-family: Geist;
-	text-align: center;
+    background-color: var(--body-background);
+    font-family: Geist;
+    text-align: center;
 }
 
 .main-container {
-	max-width: 900px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	padding: 40px;
-	background-color: var(--container-background);
-	box-shadow: var(--drop-shadow);
-	border-radius: 2px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background-color: var(--container-background);
+    box-shadow: var(--drop-shadow);
+    border-radius: 2px;
 }
 
 .wrapper {
@@ -160,7 +160,7 @@ body {
 }
 
 body, nav, header {
-	color: var(--text);
+    color: var(--text);
 }
 
 h1 {
@@ -250,11 +250,11 @@ footer {
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--body-background: #1C1C1F;
-		--container-background: #2C2C2E;
-		--text: #ecf0f1;
-	}
+    :root {
+        --body-background: #1C1C1F;
+        --container-background: #2C2C2E;
+        --text: #ecf0f1;
+    }
 }
 
 @media(max-width: 600px) {
