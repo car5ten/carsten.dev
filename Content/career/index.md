@@ -4,4 +4,4 @@ title: Career
 
 # Me as iOS Developer
 
-### Below you will find my career and the projects that reflect my work.
+### Below, you'll find a presentation of my career alongside projects that showcase my work.
