@@ -6,10 +6,10 @@
 
 :root {
 	--body-background: #F5F5F5;
-	--container-background: #f5f5f5;
-	--acent: #45A2FF;
-	--text: #242f4a;
-	--drop-shadow: 0 4px 8px 0 rgba(0.86,0.87,0.88, 0.035), 0 2px 20px 0 rgba(0.86,0.87,0.88, 0.035);
+	--container-background: #FFFFFF;
+	--acent: #3498DB;
+	--text: #333333;
+	--drop-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
 
 * {
@@ -75,20 +75,19 @@ header {
     align-items: baseline;
     justify-items: start;
     gap: 1em;
-}
-
-header a {
-	text-decoration: none;
+	box-shadow: var(--drop-shadow);
 }
 
 header .left {
 	font-size: 3.75em;
 	font-weight: bold;
+	color: var(--acent);
 }
 
 header .right {
 	font-size: 2.75em;
 	font-weight: normal;
+	color: var(--acent);
 }
 
 nav ul {
@@ -98,7 +97,36 @@ nav ul {
 }
 
 nav li a.selected {
-	text-decoration: underline;
+	color: #FC9E4F;
+}
+
+header a {
+	text-decoration: none;
+}
+
+nav li a {
+	color: var(--text);
+	position: relative;
+}
+
+nav li a::before {
+	content: '';
+	position: absolute;
+	border-radius: 2px;
+	bottom: 0;
+	right: 0;
+	width: 0;
+	height: 2px;
+	background-color: #FC9E4F;
+	transition: width 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	nav li a:not(selected):hover::before{
+		left: 0;
+		right: auto;
+		width: 100%;
+	}
 }
 
 /**
@@ -123,9 +151,8 @@ body {
 	margin-bottom: 40px;
 	padding: 40px;
 	background-color: var(--container-background);
-	var(--drop-shadow);
 	box-shadow: var(--drop-shadow);
-/*	box-shadow: 0 4px 8px 0 #DDDFE1, 0 6px 20px 0 #DDDFE1;*/
+	border-radius: 2px;
 }
 
 .wrapper {
@@ -165,7 +192,6 @@ a {
     display: block;
     padding: 20px;
     margin-bottom: 20px;
-    background-color: #333;
 }
 
 .item-list > li:last-child {
@@ -225,11 +251,9 @@ footer {
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--body-background: #1B2017;
-		--container-background: #12170e;
-		--acent: #2693FF;
-		--text: #eef0dc;
-		--drop-shadow: 0 4px 8px 0 rgba(0.1,0.12,0.09, 0.035), 0 6px 20px 0 rgba(0.1,0.12,0.09, 0.035);
+		--body-background: #1C1C1F;
+		--container-background: #2C2C2E;
+		--text: #ecf0f1;
 	}
 }
 
