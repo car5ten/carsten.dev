@@ -26,7 +26,6 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
 
     func makeIndexHTML(for index: Index,
                        context: PublishingContext<Site>) throws -> HTML {
-        _ = context.markdownParser.parse(index.body.html)
         return HTML(
             .lang(context.site.language),
             .head(for: index, on: context.site),
