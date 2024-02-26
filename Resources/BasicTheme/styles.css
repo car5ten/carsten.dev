@@ -180,6 +180,11 @@ article h3 {
     margin: 10px 0;
 }
 
+article ul {
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
 a {
     color: inherit;
 }
