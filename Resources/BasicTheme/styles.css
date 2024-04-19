@@ -23,17 +23,17 @@
 
 @font-face {
     font-family: Geist;
-    src: url(/fonts/Geist/Geist-Bold.otf);
+    src: url(/fonts/geist/Geist-Bold.otf);
     font-weight: bold;
 }
 @font-face {
     font-family: Geist;
-    src: url(/fonts/Geist/Geist-Medium.otf);
+    src: url(/fonts/geist/Geist-Medium.otf);
     font-weight: medium;
 }
 @font-face {
     font-family: Geist;
-    src: url(/fonts/Geist/Geist-Regular.otf);
+    src: url(/fonts/geist/Geist-Regular.otf);
     font-weight: regular;
 }
 
@@ -95,7 +95,6 @@ html, body {
 body {
     background-color: var(--body-background-color);
     background-image: var(--body-background);
-    font-family: Geist;
     text-align: center;
 }
 

@@ -14,9 +14,9 @@ extension Theme {
         Theme(
             htmlFactory: LandingPageHTMLFactory(),
             resourcePaths: ["Resources/BasicTheme/styles.css",
-                            "Resources/fonts/Geist/Geist-Bold.otf",
-                            "Resources/fonts/Geist/Geist-Medium.otf",
-                            "Resources/fonts/Geist/Geist-Regular.otf",
+                            "Resources/fonts/geist/Geist-Bold.otf",
+                            "Resources/fonts/geist/Geist-Medium.otf",
+                            "Resources/fonts/geist/Geist-Regular.otf",
                            ]
         )
     }
