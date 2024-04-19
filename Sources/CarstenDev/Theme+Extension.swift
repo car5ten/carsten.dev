@@ -13,7 +13,11 @@ extension Theme {
     static var basic: Self {
         Theme(
             htmlFactory: LandingPageHTMLFactory(),
-            resourcePaths: ["Resources/BasicTheme/styles.css", "Resources/fonts/timeburner/timeburnernormal.ttf", "Resources/fonts/timeburner/timeburnerbold.ttf", "Resources/fonts/geist/Geist-Regular.otf"]
+            resourcePaths: ["Resources/BasicTheme/styles.css",
+                            "Resources/fonts/Geist/Geist-Bold.otf",
+                            "Resources/fonts/Geist/Geist-Medium.otf",
+                            "Resources/fonts/Geist/Geist-Regular.otf",
+                           ]
         )
     }
 }
@@ -24,11 +28,46 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
         case unknownWebsiteSectionID
     }
 
+    func head(index: Location, context: PublishingContext<Site>) -> Node<HTML.DocumentContext> {
+        let location = index
+        let site = context.site
+        var title = location.title
+
+        if title.isEmpty {
+            title = site.name
+        } else {
+            title.append(" | " + site.name)
+        }
+
+        var description = location.description
+
+        if description.isEmpty {
+            description = site.description
+        }
+
+        return .head(
+            .encoding(.utf8),
+            .siteName(site.name),
+            .url(site.url(for: location)),
+            .title(title),
+            .description(description),
+            .twitterCardType(location.imagePath == nil ? .summary : .summaryLargeImage),
+            .stylesheet(Path("/styles.css")),
+            .viewport(.accordingToDevice),
+            .unwrap(site.favicon, { .favicon($0) }),
+            .unwrap(location.imagePath ?? site.imagePath, { path in
+                let url = site.url(for: path)
+                return .socialImageLink(url)
+            })
+        )
+
+    }
+
     func makeIndexHTML(for index: Index,
                        context: PublishingContext<Site>) throws -> HTML {
         return HTML(
             .lang(context.site.language),
-            .head(for: index, on: context.site),
+            head(index: index, context: context),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 MainContainer {
@@ -43,7 +82,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                          context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: section, on: context.site),
+            head(index: section, context: context),
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
                 MainContainer {
@@ -61,7 +100,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                       context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: item, on: context.site),
+            head(index: item, context: context),
             .body(
                 .class("item-page"),
                 .components {
@@ -117,18 +156,12 @@ private struct SiteHeader<Site: Website>: Component {
 
     var body: Component {
         Header {
-            Div {
-                let left = context.site.name.split(separator: ".").first!
-                let leftEndIndex = context.site.name.range(of: left)!.upperBound
-                let right = context.site.name[leftEndIndex ..< context.site.name.endIndex]
-                Link(String(left), url: "/")
-                    .class("left")
-                Link(String(right), url: "/")
-                    .class("right")
-            }
-
+            Link(context.site.name, url: "/")
+                .class("title")
             if Site.SectionID.allCases.count > 0 {
-                navigation
+                H2 {
+                    navigation
+                }
             }
         }
     }
@@ -137,8 +170,7 @@ private struct SiteHeader<Site: Website>: Component {
         Navigation {
             List(Site.SectionID.allCases) { sectionID in
                 let section = context.sections[sectionID]
-
-                return Link(section.title,
+                return Link(section.title.lowercased(),
                             url: section.path.absoluteString
                 )
                 .class(sectionID == selectedSelectionID ? "selected" : "")

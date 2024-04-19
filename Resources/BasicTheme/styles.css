@@ -5,16 +5,15 @@
  */
 
 :root {
-    --body-background: #F5F5F5;
-    --container-background: #FFFFFF;
+    --body-background: linear-gradient(to bottom, #f5f5f5 5%, white 100%);
     --accent: #45A2FF;
-    --text: #333333;
-    --drop-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    --text: #101010;
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: Geist;
 }
 
 /**
@@ -22,19 +21,18 @@
  */
 
 @font-face {
-    font-family: "TimeBurner";
-    src: url(/fonts/timeburner/timeburnernormal.ttf);
-}
-
-@font-face {
-    font-family: "TimeBurner";
-    src: url(/fonts/timeburner/timeburnerbold.ttf);
+    font-family: Geist;
+    src: url(/fonts/Geist/Geist-Bold.otf);
     font-weight: bold;
 }
-
 @font-face {
-    font-family: "Geist";
-    src: url(/fonts/geist/Geist-Regular.otf);
+    font-family: Geist;
+    src: url(/fonts/Geist/Geist-Medium.otf);
+    font-weight: medium;
+}
+@font-face {
+    font-family: Geist;
+    src: url(/fonts/Geist/Geist-Regular.otf);
     font-weight: regular;
 }
 
@@ -42,91 +40,43 @@
  Header
  */
 
-@media (max-width: 550px) {
-
-    header {
-        grid-template-columns: 1fr !important;
-        text-align: center; /* Center the content in a single column */
-        justify-items: center !important;
-        gap: 0px !important;
-    }
-
-    header nav {
-        grid-column: 1 !important;
-    }
-
-    header div {
-        grid-column: 1 !important;
-    }
-
-}
-
-header div {
-    color: var(--accent);
-    grid-column: 2;
-}
-
 header {
-    background-color: var(--container-background);
-    font-family: TimeBurner;
-    padding: 5px 0px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Three columns: 1 fraction for each side and auto for the center */
     align-items: baseline;
-    justify-items: start;
-    gap: 1em;
-    box-shadow: var(--drop-shadow);
+    padding: 0.5em 1em 0.2em 1em;
 }
 
-header .left {
-    font-size: 3.75em;
+header .title {
+    display: flex;
+    font-size: 0.9em;
     font-weight: bold;
-    color: var(--accent);
-}
-
-header .right {
-    font-size: 2.75em;
-    font-weight: normal;
-    color: var(--accent);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1em;
+    justify-content: center;
+}
+
+nav ul li:not(:last-child) {
+    margin-right: 2em;
 }
 
 nav li a.selected {
     color: #FC9E4F;
+    border-bottom: 1px solid #FC9E4F;
 }
 
 header a {
     text-decoration: none;
 }
 
-nav li a {
+nav a:hover {
+    border-bottom: 1px solid #FC9E4F;
+}
+
+nav a {
     color: var(--text);
-    position: relative;
-}
-
-nav li a::before {
-    content: '';
-    position: absolute;
-    border-radius: 2px;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: #FC9E4F;
-    transition: width 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-    nav li a:not(selected):hover::before{
-        left: 0;
-        right: auto;
-        width: 100%;
-    }
+    border-bottom: 1px solid #444;
 }
 
 /**
@@ -137,8 +87,12 @@ strong {
     color: var(--accent);
 }
 
+html, body {
+    min-height: 100%;
+}
+
 body {
-    background-color: var(--body-background);
+    background-image: var(--body-background);
     font-family: Geist;
     text-align: center;
 }
@@ -147,12 +101,8 @@ body {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
     margin-bottom: 40px;
-    padding: 40px;
-    background-color: var(--container-background);
-    box-shadow: var(--drop-shadow);
-    border-radius: 2px;
+    padding: 1.25em;
 }
 
 .wrapper {
@@ -196,7 +146,6 @@ a {
 .item-list > li {
     display: block;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 .item-list > li:last-child {
@@ -212,42 +161,8 @@ a {
     margin-bottom: 0;
 }
 
-.tag-list {
-    margin-bottom: 15px;
-}
-
-.tag-list li,
-.tag {
-    display: inline-block;
-    background-color: #000;
-    color: #ddd;
-    padding: 4px 6px;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-.tag-list a,
-.tag a {
-    text-decoration: none;
-}
-
-.item-page .tag-list {
-    display: inline-block;
-}
-
 .content {
     margin-bottom: 40px;
-}
-
-.browse-all {
-    display: block;
-    margin-bottom: 30px;
-}
-
-.all-tags li {
-    font-size: 1.4em;
-    margin-right: 10px;
-    padding: 6px 10px;
 }
 
 footer {
@@ -256,8 +171,7 @@ footer {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --body-background: #1C1C1F;
-        --container-background: #2C2C2E;
+        --body-background: linear-gradient(to bottom, #161616 5%, black 100%);
         --text: #ecf0f1;
     }
 }
