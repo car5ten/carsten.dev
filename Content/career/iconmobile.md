@@ -6,7 +6,7 @@ date: 2020-05-15 00:00
 
 ### May 2014 - May 2020
 
-During my time as a student worker and in a full-time role, I had the opportunity to contribute to various projects and prototype development, conduct thorough research on diverse topics, and engage in comprehensive app benchmarking. While working on the development of new features in different projects, I began using **Swift from version 1.0** onward. I also gained hands-on experience with various architectural paradigms, although most apps during that period primarily utilized either **MVC**, a customized MVC variant, or **MVVM**.
+During my time as a student worker and in a full-time role, I contributed to various projects and prototype developments, conducted thorough research on diverse topics, and engaged in comprehensive app benchmarking. While working on the development of new features across different projects, I began using **Swift from version 1.0** onward. I gained hands-on experience with various architectural paradigms, although most apps during that period primarily utilized either **MVC**, a customized MVC variant, or **MVVM**.
 ### 
 The most significant milestone in my career at iconmobile was proving myself in the role of Lead in a client project, where, as a team, we successfully achieved our project goals.
 ### 

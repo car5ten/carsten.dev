@@ -2,9 +2,10 @@
 title: 👋 Hey
 ---
 
-# 👋 Hey I'm **Carsten**!
-Take a look around and find out what I've been up to lately.
+# 👋 Hey, I'm **Carsten**!
 
-Dive into the various projects I've tackled in the past to get a deeper understanding.
+Feel free to explore and see what I've been up to lately.
 
-Lastly, gain insights how I ended up where I am now.
+Dive into the various projects I've tackled in the past to gain a deeper understanding.
+
+Lastly, discover how I ended up where I am now.
