@@ -70,8 +70,8 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             head(index: index, context: context),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
-                MainContainer {
-                    index.body
+                Wrapper {
+                    Div(index.body).class("main")
                 }
                 SiteFooter()
             }
@@ -85,8 +85,11 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             head(index: section, context: context),
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
-                MainContainer {
-                    section.body
+                if case .tldr = section.id as! CarstenDev.SectionID, let first = section.items.first {
+                    Wrapper {
+                        first.body
+                    }
+                } else {
                     Wrapper {
                         ItemList(items: section.items, site: context.site)
                     }
@@ -105,11 +108,9 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                 .class("item-page"),
                 .components {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
-                    MainContainer {
-                        Wrapper {
-                            Article {
-                                Div(item.content.body).class("content")
-                            }
+                    Wrapper {
+                        Article {
+                            Div(item.content.body).class("content")
                         }
                     }
                     SiteFooter()
@@ -139,14 +140,6 @@ private struct Wrapper: ComponentContainer {
 
     var body: Component {
         Div(content: content).class("wrapper")
-    }
-}
-
-private struct MainContainer: ComponentContainer {
-    @ComponentBuilder var content: ContentProvider
-
-    var body: Component {
-        Div(content: content).class("main-container")
     }
 }
 

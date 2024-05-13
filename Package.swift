@@ -18,7 +18,7 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "CarstenDev",
-            dependencies: ["Publish"]
+            dependencies: ["Publish", "SVGPublishPlugin"]
         )
     ]
 )

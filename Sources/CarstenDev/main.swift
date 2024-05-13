@@ -2,11 +2,13 @@ import Foundation
 import Publish
 import Plot
 import Ink
+import SVGPublishPlugin
 
 // This type acts as the configuration for your website.
 struct CarstenDev: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
+        case tldr
         case career
         case me
     }
@@ -28,4 +30,6 @@ try CarstenDev().publish(withTheme: .basic,
                          deployedUsing: .gitHub("car5ten/car5ten.github.io", branch: "website"),
                          additionalSteps: [
                             .copyFiles(at: .init("Resources/pages"))
-                         ])
+                         ]/*, plugins: [
+                            .svgPlugin()
+                         ]*/)
