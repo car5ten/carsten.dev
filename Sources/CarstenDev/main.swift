@@ -30,6 +30,6 @@ try CarstenDev().publish(withTheme: .basic,
                          deployedUsing: .gitHub("car5ten/car5ten.github.io", branch: "website"),
                          additionalSteps: [
                             .copyFiles(at: .init("Resources/pages"))
-                         ]/*, plugins: [
-                            .svgPlugin()
-                         ]*/)
+                         ], plugins: [
+                           .svgPlugin()
+                           ])

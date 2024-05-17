@@ -8,5 +8,5 @@
 import SVGPublishPlugin
 
 enum SVG: String, SVGFileNameCase {
-    case notFound
+    case linkedin, stackoverflow, mail, github
 }

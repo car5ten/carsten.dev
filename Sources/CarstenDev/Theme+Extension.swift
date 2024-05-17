@@ -60,7 +60,6 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                 return .socialImageLink(url)
             })
         )
-
     }
 
     func makeIndexHTML(for index: Index,
@@ -69,7 +68,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             head(index: index, context: context),
             .body {
-                SiteHeader(context: context, selectedSelectionID: nil)
+                siteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
                     Div(index.body).class("main")
                 }
@@ -84,7 +83,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             head(index: section, context: context),
             .body {
-                SiteHeader(context: context, selectedSelectionID: section.id)
+                siteHeader(context: context, selectedSelectionID: section.id)
                 if case .tldr = section.id as! CarstenDev.SectionID, let first = section.items.first {
                     Wrapper {
                         first.body
@@ -107,7 +106,7 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
             .body(
                 .class("item-page"),
                 .components {
-                    SiteHeader(context: context, selectedSelectionID: item.sectionID)
+                    siteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
                         Article {
                             Div(item.content.body).class("content")
@@ -133,42 +132,70 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                             context: PublishingContext<Site>) throws -> HTML? {
         nil
     }
+
+    func siteHeader(context: PublishingContext<Site>, selectedSelectionID: Site.SectionID?) -> Node<HTML.BodyContext> {
+        return .header(
+            .span(
+                .a(
+                    .href(.init("/")),
+                    .class("title"),
+                    .title("carsten.dev"),
+                    .text(context.site.name)
+                ),
+                .a(
+                    .href(.init("https://www.linkedin.com/in/carstenvoss/")),
+                    .class("title"),
+                    .title("LinkedIn"),
+                    .svg(SVG.linkedin, parameters: .height(15), .width(15))
+                ),
+                .a(
+                    .href(.init("https://github.com/car5ten")),
+                    .class("title"),
+                    .title("GitHub"),
+                    .svg(SVG.github, parameters: .height(15), .width(15))
+                ),
+                .a(
+                    .href(.init("https://stackoverflow.com/users/1958912/carsten")),
+                    .class("title"),
+                    .title("stack overflow"),
+                    .svg(SVG.stackoverflow, parameters: .height(15), .width(15))
+                ),
+                .a(
+                    .href(Path.mailTo),
+                    .class("title"),
+                    .title("Mail"),
+                    .svg(SVG.mail, parameters: .height(15), .width(15))
+                )
+            ),
+            .h2(
+                .nav(
+                    .ul(
+                        .forEach(context.sections, { section in
+                                .li(
+                                    .a(
+                                        .text(section.title.lowercased()),
+                                        .href(.init(section.path.absoluteString)),
+                                        .class(section.id == selectedSelectionID ? "selected" : "")
+                                    )
+                                )
+                        })
+                    )
+                )
+            )
+        )
+    }
 }
 
+extension Path {
+    static var mailTo: URLRepresentable {
+        return "mailto:hello@carsten.dev"
+    }
+}
 private struct Wrapper: ComponentContainer {
     @ComponentBuilder var content: ContentProvider
 
     var body: Component {
         Div(content: content).class("wrapper")
-    }
-}
-
-private struct SiteHeader<Site: Website>: Component {
-    var context: PublishingContext<Site>
-    var selectedSelectionID: Site.SectionID?
-
-    var body: Component {
-        Header {
-            Link(context.site.name, url: "/")
-                .class("title")
-            if Site.SectionID.allCases.count > 0 {
-                H2 {
-                    navigation
-                }
-            }
-        }
-    }
-
-    private var navigation: Component {
-        Navigation {
-            List(Site.SectionID.allCases) { sectionID in
-                let section = context.sections[sectionID]
-                return Link(section.title.lowercased(),
-                            url: section.path.absoluteString
-                )
-                .class(sectionID == selectedSelectionID ? "selected" : "")
-            }
-        }
     }
 }
 
