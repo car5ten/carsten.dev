@@ -105,7 +105,7 @@ header span a:not(:last-child) {
 }
 
 header span a:nth-child(2) {
-    margin-left: 20px;
+    margin-left: auto;
 }
 
 /**
@@ -138,10 +138,6 @@ table {
 
 td {
     vertical-align: top;
-}
-
-td:not(:first-child) {
-    text-align: justify;
 }
 
 .wrapper {
@@ -230,5 +226,11 @@ footer {
 @media(max-width: 600px) {
     .wrapper {
         padding: 40px 20px;
+    }
+}
+
+@media(min-width: 450px) {
+    td:not(:first-child) {
+        text-align: justify;
     }
 }
