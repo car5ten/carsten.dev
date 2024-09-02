@@ -2,7 +2,7 @@
 date:
 ---
 
-# **365FarmNet**
+# **CLAAS 365FarmNet**
 
 ### since 2021
 
