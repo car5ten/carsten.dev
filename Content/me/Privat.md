@@ -8,4 +8,4 @@ As a teenager, I was already passionate about things related to computers and th
 ### 
 In addition to software development, I also have hobbies that I practice to varying degrees of proficiency, such as graphic design, creating 3D models for my 3D printer, play board games, baking muffins and cakes, playing Yo-Yo, and binge-watching every single episode of Doctor Who. Outside my four walls, I enjoy going bouldering with friends, occasionally strolling through flea markets, and taking beach walks in my hometown.
 ### 
-Furthermore, I've recently become fascinated by everything related to AI. In addition to experimenting with image generation, I plan to train my own LLM for a personal project, which can then be used as a chatbot app. Currently, I have several other small projects in the pipeline.
+Furthermore, I've recently become fascinated by everything related to AI and experimenting with image generation. Currently, I'm working on a small App which informs about the diversity of nature, environmental, climate and sustainability education in Berlin.
