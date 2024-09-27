@@ -13,7 +13,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Geist;
+    font-family: Atkinson;
 }
 
 /**
@@ -21,19 +21,14 @@
  */
 
 @font-face {
-    font-family: Geist;
-    src: url(/fonts/geist/Geist-Bold.otf);
-    font-weight: bold;
-}
-@font-face {
-    font-family: Geist;
-    src: url(/fonts/geist/Geist-Medium.otf);
-    font-weight: medium;
-}
-@font-face {
-    font-family: Geist;
-    src: url(/fonts/geist/Geist-Regular.otf);
+    font-family: Atkinson;
+    src: url(/fonts/atkinson/AtkinsonRegular.ttf);
     font-weight: regular;
+}
+@font-face {
+    font-family: Atkinson;
+    src: url(/fonts/atkinson/AtkinsonBold.ttf);
+    font-weight: bold;
 }
 
 /**
@@ -46,7 +41,7 @@ header {
 }
 
 header .title {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -130,6 +125,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
 }
 
 table {
@@ -155,16 +151,17 @@ body, nav, header {
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 32px;
 }
 
 h2 {
     margin: 20px 0;
+    font-size: 32px;
 }
 
 p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 article {
@@ -199,7 +196,7 @@ a {
 
 .item-list h1 {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .item-list p {

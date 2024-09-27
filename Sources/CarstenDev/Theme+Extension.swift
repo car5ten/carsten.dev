@@ -13,11 +13,11 @@ extension Theme {
     static var basic: Self {
         Theme(
             htmlFactory: LandingPageHTMLFactory(),
-            resourcePaths: ["Resources/BasicTheme/styles.css",
-                            "Resources/fonts/geist/Geist-Bold.otf",
-                            "Resources/fonts/geist/Geist-Medium.otf",
-                            "Resources/fonts/geist/Geist-Regular.otf",
-                           ]
+            resourcePaths: [
+                "Resources/BasicTheme/styles.css",
+                "Resources/fonts/atkinson/AtkinsonRegular.ttf",
+                "Resources/fonts/atkinson/AtkinsonBold.ttf",
+            ]
         )
     }
 }
@@ -146,25 +146,25 @@ private struct LandingPageHTMLFactory<Site: Website>: HTMLFactory {
                     .href(.init("https://www.linkedin.com/in/carstenvoss/")),
                     .class("title"),
                     .title("LinkedIn"),
-                    .svg(SVG.linkedin, parameters: .height(15), .width(15))
+                    .svg(SVG.linkedin, parameters: .height(17), .width(17))
                 ),
                 .a(
                     .href(.init("https://github.com/car5ten")),
                     .class("title"),
                     .title("GitHub"),
-                    .svg(SVG.github, parameters: .height(15), .width(15))
+                    .svg(SVG.github, parameters: .height(17), .width(17))
                 ),
                 .a(
                     .href(.init("https://stackoverflow.com/users/1958912/carsten")),
                     .class("title"),
                     .title("stack overflow"),
-                    .svg(SVG.stackoverflow, parameters: .height(15), .width(15))
+                    .svg(SVG.stackoverflow, parameters: .height(17), .width(17))
                 ),
                 .a(
                     .href(Path.mailTo),
                     .class("title"),
                     .title("Mail"),
-                    .svg(SVG.mail, parameters: .height(15), .width(15))
+                    .svg(SVG.mail, parameters: .height(17), .width(17))
                 )
             ),
             .h2(
