@@ -27,7 +27,7 @@ struct CarstenDev: Website {
 
 // This will generate your website using the built-in Foundation theme:
 try CarstenDev().publish(withTheme: .basic,
-                         deployedUsing: .gitHub("car5ten/car5ten.github.io", branch: "website"),
+                         deployedUsing: .gitHub("car5ten/car5ten.github.io", branch: "main"),
                          additionalSteps: [
                             .copyFiles(at: .init("Resources/pages"))
                          ], plugins: [
