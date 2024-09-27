@@ -2,7 +2,7 @@
 date: 2020-05-15 00:00
 ---
 
-# **What I do outside of work**
+# What I do **outside** of work
 
 As a teenager, I was already passionate about things related to computers and the internet. It all started with creating a simple website. After that, I developed small programs and scripts that helped me with various tasks on my PC. With my entry into the world of software development, I found my passion as an iOS developer. ( obviously ;) )
 ### 

@@ -4,9 +4,9 @@ Experienced iOS Developer with over 9 years of passion for innovative, user-frie
 | -----------------------------: | --------------------------------------------------------------------------------------------------------------------------- |
 |                         **Me** | Carsten                                                                                                                     |
 |              **iOS Developer** | with passion since 2014                                                                                                     |
-|       **Impact at iconmobile** | developed new features in Swift for a mixed Obj-C and Swift project, leading project with a team of 5 persons               |
-|    **Impact at Check24 Möbel** | established MVVM architecture as foundation in early app stage                                                              |
 | **Impact at CLAAS 365FarmNet** | Create new features and refactor the app, enhance SwiftUI skills                                                            |
+|    **Impact at Check24 Möbel** | established MVVM architecture as foundation in early app stage                                                              |
+|       **Impact at iconmobile** | developed new features in Swift for a mixed Obj-C and Swift project, leading project with a team of 5 persons               |
 |    **Most important projects** | 365Active App, Check24 Möbel App, Oral‑B (Version 3.0 ‑ 5.1), We Park, Henkel SalonLab                                      |
 |      **Programming languages** | Swift (since Version 1.0), Objective-C (with and without ARC)                                                               |
 |                **Creating UI** | UINib, UIStoryboard, Programmatically, SwiftUI                                                                              |
