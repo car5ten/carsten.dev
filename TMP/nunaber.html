@@ -16,6 +16,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        align-items: flex-start;
+      }
     }
 
     .container {
@@ -26,6 +34,16 @@
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
       box-sizing: border-box;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .rechnung {
+      text-align: center;
+      font-style: italic;
+      margin: 25px 0;
+      font-size: 1.2rem;
+      color: #7a5a6b;
     }
 
     h1 {
@@ -39,33 +57,8 @@
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 20px;
-      text-align: justify;
-      hyphens: auto;
     }
 
-    .hilfe-link {
-      font-size: 0.75rem;
-      color: #b8a5a5;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 30px;
-      text-align: center;
-      width: 100%;
-    }
-
-    .hilfe-link:hover {
-      color: #a88;
-    }
-
-    .rechnung {
-      text-align: center;
-      font-style: italic;
-      margin: 25px 0;
-      font-size: 1.2rem;
-      color: #7a5a6b;
-    }
-
-    /* Responsive Anpassungen */
     @media (max-width: 480px) {
       h1 {
         font-size: 1.4rem;
@@ -73,24 +66,19 @@
       p {
         font-size: 1rem;
       }
-      .rechnung {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Sanfte Worte</h1>
+    <h1>Ganz still und leicht</h1>
 
-    <p>Manchmal fühlt sich alles ganz still als eins.<br>
-    Worte sind mehr als nur Klang.<br>
-    Kleine Momente verbinden,<br>
+    <p>Manchmal fühlt sich alles ganz still als eins.
+    Worte sind mehr als nur Klang.
+    Kleine Momente verbinden,
     und zeigen, was wirklich zählt.</p>
 
-    <p class="rechnung">_ − _ − _ + _ + _ = ?</p>
-    
-    <a href="zweite-seite.html" class="hilfe-link">[ zurück zur leichteren Seite ➤ ]</a>
+    <p class="rechnung">?</p>
   </div>
 </body>
 </html>
